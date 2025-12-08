@@ -40,13 +40,15 @@ class _LessonScreenState extends State<LessonScreen> {
             children: [
               const SizedBox(height: 20),
 
-              /// ⭐ Boutons Flashcards / Quiz
+              /// ⭐ Boutons Flashcards + Quiz (3 lignes)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
+                child: Column(
                   children: [
-                    Expanded(
-                      child: _bigButton(
+                    // Ligne : Flashcards
+                    SizedBox(
+                      height: 70,
+                      child: _thinButton(
                         icon: Icons.style,
                         label: "Flashcards",
                         onTap: () {
@@ -59,16 +61,45 @@ class _LessonScreenState extends State<LessonScreen> {
                         },
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: _bigButton(
+
+                    const SizedBox(height: 14),
+
+                    // Ligne : Quiz JP -> FR
+                    SizedBox(
+                      height: 70,
+                      child: _thinButton(
                         icon: Icons.quiz,
-                        label: "Quiz",
+                        label: "Quiz JP → FR",
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => VocabQuiz(words: vocab),
+                              builder: (_) => VocabQuiz(
+                                words: vocab,
+                                mode: QuizMode.jpToFr,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+
+                    const SizedBox(height: 14),
+
+                    // Ligne : Quiz FR -> JP
+                    SizedBox(
+                      height: 70,
+                      child: _thinButton(
+                        icon: Icons.quiz_outlined,
+                        label: "Quiz FR → JP",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => VocabQuiz(
+                                words: vocab,
+                                mode: QuizMode.frToJp,
+                              ),
                             ),
                           );
                         },
@@ -175,4 +206,42 @@ class _LessonScreenState extends State<LessonScreen> {
       ),
     );
   }
+}
+
+/// ⭐ Bouton plus fin pour 1 par ligne
+Widget _thinButton({
+  required IconData icon,
+  required String label,
+  required Function() onTap,
+}) {
+  return GestureDetector(
+    onTap: onTap,
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade300,
+            blurRadius: 8,
+            offset: const Offset(2, 2),
+          )
+        ],
+      ),
+      child: Row(
+        children: [
+          Icon(icon, size: 26, color: const Color(0xFFCC0000)),
+          const SizedBox(width: 16),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }

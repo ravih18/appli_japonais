@@ -2,10 +2,17 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import '../../models/vocab_word.dart';
 
+enum QuizMode { jpToFr, frToJp }
+
 class VocabQuiz extends StatefulWidget {
   final List<VocabWord> words;
+  final QuizMode mode;
 
-  const VocabQuiz({super.key, required this.words});
+  const VocabQuiz({
+    super.key,
+    required this.words,
+    required this.mode,
+  });
 
   @override
   State<VocabQuiz> createState() => _VocabQuizState();
@@ -41,30 +48,46 @@ class _VocabQuizState extends State<VocabQuiz> {
   List<String> generateChoices(VocabWord word) {
     final rng = Random();
 
-    final otherWords = widget.words
-        .where((w) => w.fr != word.fr)
-        .map((w) => w.fr)
-        .toList();
+    late List<String> all; 
+    late String correct;
 
-    otherWords.shuffle(rng);
+    if (widget.mode == QuizMode.jpToFr) {
+      // choix = français
+      correct = word.fr;
+      all = widget.words.where((w) => w.fr != word.fr).map((w) => w.fr).toList();
+    } else {
+      // choix = japonais
+      correct = word.jp;
+      all = widget.words.where((w) => w.jp != word.jp).map((w) => w.jp).toList();
+    }
+
+    all.shuffle(rng);
 
     final choices = [
-      word.fr,
-      ...otherWords.take(3),
+      correct,
+      ...all.take(3),
     ];
 
     choices.shuffle(rng);
-
     return choices;
   }
+
 
   void answer(String selected, VocabWord word) {
     if (answered) return;
 
+    late String correct;
+
+    if (widget.mode == QuizMode.jpToFr) {
+      correct = word.fr;
+    } else {
+      correct = word.jp;
+    }
+
     setState(() {
       answered = true;
-      isCorrect = selected == word.fr;
-      correctAnswer = word.fr;
+      isCorrect = selected == correct;
+      correctAnswer = correct;
 
       if (isCorrect) score++;
     });
@@ -118,7 +141,7 @@ class _VocabQuizState extends State<VocabQuiz> {
 
           /// ⭐ Question (JP)
           Text(
-            word.jp,
+            widget.mode == QuizMode.jpToFr ? word.jp : word.fr,
             style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
           ),
 
