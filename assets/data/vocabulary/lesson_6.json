@@ -1,0 +1,21 @@
+[
+  { "jp": "たべる", "fr": "Manger" },
+  { "jp": "のむ", "fr": "Boire" },
+  { "jp": "みる", "fr": "Regarder" },
+  { "jp": "きく", "fr": "Écouter" },
+
+  { "jp": "パン", "fr": "Pain" },
+  { "jp": "ごはん", "fr": "Riz (repas)" },
+  { "jp": "さかな", "fr": "Poisson" },
+  { "jp": "にく", "fr": "Viande" },
+  { "jp": "やさい", "fr": "Légumes" },
+  { "jp": "くだもの", "fr": "Fruits" },
+
+  { "jp": "あさごはん", "fr": "Petit-déjeuner" },
+  { "jp": "ひるごはん", "fr": "Déjeuner" },
+  { "jp": "ばんごはん", "fr": "Dîner" },
+
+  { "jp": "いっしょに", "fr": "Ensemble" },
+  { "jp": "ときどき", "fr": "Parfois" },
+  { "jp": "まいにち", "fr": "Tous les jours" }
+]

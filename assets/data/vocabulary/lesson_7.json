@@ -1,0 +1,21 @@
+[
+  { "jp": "みせ", "fr": "Magasin" },
+  { "jp": "レストラン", "fr": "Restaurant" },
+  { "jp": "スーパー", "fr": "Supermarché" },
+  { "jp": "デパート", "fr": "Grand magasin" },
+
+  { "jp": "かう", "fr": "Acheter" },
+  { "jp": "うる", "fr": "Vendre" },
+  { "jp": "みせる", "fr": "Montrer" },
+
+  { "jp": "おかね", "fr": "Argent" },
+  { "jp": "ねだん", "fr": "Prix" },
+  { "jp": "いくら", "fr": "Combien ?" },
+
+  { "jp": "やすい", "fr": "Pas cher" },
+  { "jp": "たかい", "fr": "Cher" },
+  { "jp": "あたらしい", "fr": "Nouveau" },
+  { "jp": "ふるい", "fr": "Vieux (objet)" },
+
+  { "jp": "ください", "fr": "S'il vous plaît / Donnez-moi" }
+]
