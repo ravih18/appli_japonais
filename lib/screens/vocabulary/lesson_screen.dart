@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../data/repositories/vocab_repository.dart';
 import '../../models/vocab_word.dart';
+import '../../services/vocab_loader.dart';
 import 'vocab_flashcards.dart';
 import 'vocab_quiz.dart';
 
@@ -13,34 +13,119 @@ class LessonScreen extends StatefulWidget {
 }
 
 class _LessonScreenState extends State<LessonScreen> {
-  late Future<List<VocabWord>> futureWords;
+  late Future<List<VocabWord>> futureVocab;
 
   @override
   void initState() {
     super.initState();
-    futureWords = VocabRepository().loadLesson(widget.lesson);
+    futureVocab = VocabLoader.loadLesson(widget.lesson);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFFF8F0),
       appBar: AppBar(title: Text("Leçon ${widget.lesson}")),
-      body: FutureBuilder(
-        future: futureWords,
+
+      body: FutureBuilder<List<VocabWord>>(
+        future: futureVocab,
         builder: (context, snapshot) {
-          if (!snapshot.hasData) return const Center(child: CircularProgressIndicator());
-          final words = snapshot.data!;
+          if (!snapshot.hasData) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          final vocab = snapshot.data!;
 
           return Column(
             children: [
-              if (widget.lesson == 13) _lessonMenu(words),
+              const SizedBox(height: 20),
+
+              /// ⭐ Boutons Flashcards / Quiz
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: _bigButton(
+                        icon: Icons.style,
+                        label: "Flashcards",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => VocabFlashcards(words: vocab),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: _bigButton(
+                        icon: Icons.quiz,
+                        label: "Quiz",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => VocabQuiz(words: vocab),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  "Vocabulaire",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
               Expanded(
-                child: ListView.builder(
-                  itemCount: words.length,
+                child: ListView.separated(
+                  padding: const EdgeInsets.all(16),
+                  itemCount: vocab.length,
+                  separatorBuilder: (_, __) => const Divider(height: 20),
                   itemBuilder: (context, i) {
-                    return ListTile(
-                      title: Text(words[i].jp),
-                      subtitle: Text(words[i].fr),
+                    final w = vocab[i];
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.7),
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.shade300,
+                            blurRadius: 4,
+                            offset: const Offset(1, 2),
+                          )
+                        ],
+                      ),
+                      child: ListTile(
+                        leading: const Icon(Icons.book, color: Colors.indigo),
+                        title: Text(
+                          w.jp,
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        subtitle: Text(
+                          w.fr,
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
                     );
                   },
                 ),
@@ -52,24 +137,42 @@ class _LessonScreenState extends State<LessonScreen> {
     );
   }
 
-  Widget _lessonMenu(List<VocabWord> words) {
-    return Column(
-      children: [
-        ElevatedButton(
-          onPressed: () {
-            Navigator.push(context,
-              MaterialPageRoute(builder: (_) => VocabFlashcards(words: words)));
-          },
-          child: const Text("Flashcards"),
+  /// ⭐ Bouton homogène
+  Widget _bigButton({
+    required IconData icon,
+    required String label,
+    required Function() onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 100,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade300,
+              blurRadius: 8,
+              offset: const Offset(2, 2),
+            )
+          ],
         ),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.push(context,
-              MaterialPageRoute(builder: (_) => VocabQuiz(words: words)));
-          },
-          child: const Text("Quiz"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 36, color: const Color(0xFFCC0000)),
+            const SizedBox(height: 8),
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

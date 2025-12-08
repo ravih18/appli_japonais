@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../models/vocab_word.dart';
-import 'dart:math';
 
 class VocabFlashcards extends StatefulWidget {
   final List<VocabWord> words;
@@ -16,39 +15,40 @@ class _VocabFlashcardsState extends State<VocabFlashcards>
   bool showTranslation = false;
 
   late AnimationController controller;
-  late Animation<Offset> slideAnimation;
-  late Animation<double> rotationAnimation;
+  late Animation<Offset> animation;
+
+  Offset dragOffset = Offset.zero;
 
   @override
   void initState() {
     super.initState();
-
     controller = AnimationController(
+      duration: const Duration(milliseconds: 200),
       vsync: this,
-      duration: const Duration(milliseconds: 250),
     );
 
-    // IMPORTANT : Initialisation pour éviter LateInitializationError
-    slideAnimation = AlwaysStoppedAnimation<Offset>(Offset.zero);
-    rotationAnimation = AlwaysStoppedAnimation<double>(0.0);
+    animation = Tween<Offset>(
+      begin: Offset.zero,
+      end: Offset.zero,
+    ).animate(controller);
+
+    controller.addListener(() {
+      setState(() {
+        dragOffset = animation.value;
+      });
+    });
   }
 
-  void animateCard({required bool forward}) {
-    final endOffset =
-        forward ? const Offset(-2.0, 0) : const Offset(2.0, 0);
-    final endRotation = forward ? -0.3 : 0.3;
-
-    slideAnimation = Tween<Offset>(
-      begin: Offset.zero,
-      end: endOffset,
-    ).animate(CurvedAnimation(parent: controller, curve: Curves.easeOut));
-
-    rotationAnimation = Tween<double>(
-      begin: 0,
-      end: endRotation,
-    ).animate(CurvedAnimation(parent: controller, curve: Curves.easeOut));
+  void animateToPosition(Offset end, {required bool forward}) {
+    animation = Tween<Offset>(
+      begin: dragOffset,
+      end: end,
+    ).animate(controller);
 
     controller.forward().then((_) {
+      controller.reset();
+      dragOffset = Offset.zero;
+
       setState(() {
         if (forward && index < widget.words.length - 1) {
           index++;
@@ -57,9 +57,15 @@ class _VocabFlashcardsState extends State<VocabFlashcards>
         }
         showTranslation = false;
       });
-
-      controller.reset();
     });
+  }
+
+  void goNext() {
+    animateToPosition(const Offset(-500, 0), forward: true);
+  }
+
+  void goPrevious() {
+    animateToPosition(const Offset(500, 0), forward: false);
   }
 
   @override
@@ -72,92 +78,100 @@ class _VocabFlashcardsState extends State<VocabFlashcards>
         children: [
           const SizedBox(height: 20),
 
-          /// ⭐ Indicateur de progression
+          /// 🔢 Indicateur
           Text(
             "Carte ${index + 1} / ${widget.words.length}",
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
 
           const SizedBox(height: 20),
 
           Expanded(
-            child: Center(
-              child: GestureDetector(
-                onTap: () =>
-                    setState(() => showTranslation = !showTranslation),
+            child: GestureDetector(
+              onTap: () => setState(() => showTranslation = !showTranslation),
 
-                onHorizontalDragEnd: (details) {
-                  if (details.velocity.pixelsPerSecond.dx < -200) {
-                    if (index < widget.words.length - 1) {
-                      animateCard(forward: true);
-                    }
-                  } else if (details.velocity.pixelsPerSecond.dx > 200) {
-                    if (index > 0) {
-                      animateCard(forward: false);
-                    }
-                  }
-                },
+              onHorizontalDragUpdate: (details) {
+                setState(() {
+                  dragOffset += Offset(details.delta.dx, 0);
+                });
+              },
 
-                child: AnimatedBuilder(
-                  animation: controller,
-                  builder: (context, child) {
-                    return Transform.translate(
-                      offset: slideAnimation.value,
-                      child: Transform.rotate(
-                        angle: rotationAnimation.value,
-                        child: child,
-                      ),
-                    );
-                  },
-                  child: Card(
-                    elevation: 10,
-                    margin: const EdgeInsets.all(20),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Container(
-                      height: 320,
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      alignment: Alignment.center,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            word.jp,
-                            style: const TextStyle(
-                              fontSize: 42,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
+              onHorizontalDragEnd: (details) {
+                const threshold = 150;
+
+                if (dragOffset.dx < -threshold && index < widget.words.length - 1) {
+                  goNext();
+                } else if (dragOffset.dx > threshold && index > 0) {
+                  goPrevious();
+                } else {
+                  // Retour au centre
+                  animateToPosition(Offset.zero, forward: false);
+                }
+              },
+
+              child: Transform.translate(
+                offset: dragOffset,
+                child: Card(
+                  elevation: 10,
+                  margin: const EdgeInsets.all(20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Container(
+                    height: 320,
+                    padding: const EdgeInsets.all(20),
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          word.jp,
+                          style: const TextStyle(
+                            fontSize: 42,
+                            fontWeight: FontWeight.bold,
                           ),
-
-                          const SizedBox(height: 20),
-
-                          AnimatedOpacity(
-                            duration:
-                                const Duration(milliseconds: 200),
-                            opacity: showTranslation ? 1.0 : 0.0,
-                            child: Text(
-                              word.fr,
-                              style: TextStyle(
-                                fontSize: 22,
-                                color: Colors.grey.shade700,
-                              ),
-                              textAlign: TextAlign.center,
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 20),
+                        AnimatedOpacity(
+                          duration: const Duration(milliseconds: 200),
+                          opacity: showTranslation ? 1.0 : 0.0,
+                          child: Text(
+                            word.fr,
+                            style: TextStyle(
+                              fontSize: 22,
+                              color: Colors.grey.shade700,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
             ),
           ),
+
+          /// 🔽 Boutons précédent / suivant
+          Padding(
+            padding: const EdgeInsets.only(bottom: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  iconSize: 40,
+                  onPressed: index > 0 ? goPrevious : null,
+                  icon: const Icon(Icons.arrow_back_ios_new),
+                ),
+                const SizedBox(width: 40),
+                IconButton(
+                  iconSize: 40,
+                  onPressed: index < widget.words.length - 1 ? goNext : null,
+                  icon: const Icon(Icons.arrow_forward_ios),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
