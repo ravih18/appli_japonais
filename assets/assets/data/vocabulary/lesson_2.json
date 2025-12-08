@@ -1,0 +1,27 @@
+[
+  { "jp": "エルジェ", "fr": "Hergé" },
+  { "jp": "みしま", "fr": "Mishima (écrivain)" },
+  { "jp": "おんがく", "fr": "Musique" },
+  { "jp": "CD", "fr": "CD" },
+  { "jp": "ジャズ", "fr": "Jazz" },
+  { "jp": "クラシック", "fr": "Musique classique" },
+  { "jp": "ロック", "fr": "Rock" },
+
+  { "jp": "本（ほん）", "fr": "Livre" },
+  { "jp": "まんが", "fr": "Manga" },
+  { "jp": "ざっし", "fr": "Magazine" },
+  { "jp": "しんぶん", "fr": "Journal" },
+
+  { "jp": "テレビ", "fr": "Télé" },
+  { "jp": "ラジオ", "fr": "Radio" },
+
+  { "jp": "カメラ", "fr": "Appareil photo" },
+  { "jp": "ボールペン", "fr": "Stylo à bille" },
+  { "jp": "えんぴつ", "fr": "Crayon" },
+  { "jp": "はいざら", "fr": "Cendrier" },
+  { "jp": "とけい", "fr": "Montre / Horloge" },
+  { "jp": "かさ", "fr": "Parapluie" },
+
+  { "jp": "いぬ", "fr": "Chien" },
+  { "jp": "えいが", "fr": "Film" }
+]

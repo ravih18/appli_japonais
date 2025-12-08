@@ -1,0 +1,56 @@
+[
+  { "jp": "けん", "fr": "Ken (un prénom)" },
+  { "jp": "しげる", "fr": "Shigeru (un prénom)" },
+  { "jp": "ナタリー", "fr": "Nathalie (un prénom)" },
+  { "jp": "やまだ", "fr": "Yamada (un nom)" },
+  { "jp": "ジャン・レノ", "fr": "Jean Reno" },
+  { "jp": "サルコジ", "fr": "Sarkozy" },
+
+  { "jp": "わたし", "fr": "Je" },
+  { "jp": "あなた", "fr": "Vous/tu" },
+  { "jp": "にほん", "fr": "Japon" },
+  { "jp": "にほんじん", "fr": "Japonais (personne)" },
+  { "jp": "にほんご", "fr": "Langue japonaise" },
+
+  { "jp": "フランス", "fr": "France" },
+  { "jp": "フランスじん", "fr": "Français (personne)" },
+  { "jp": "フランスご", "fr": "Langue française" },
+
+  { "jp": "ドイツ", "fr": "Allemagne" },
+  { "jp": "ドイツじん", "fr": "Allemand (personne)" },
+  { "jp": "ドイツご", "fr": "Langue allemande" },
+
+  { "jp": "イタリア", "fr": "Italie" },
+  { "jp": "イタリアじん", "fr": "Italien (personne)" },
+  { "jp": "イタリアご", "fr": "Langue italienne" },
+
+  { "jp": "イギリス", "fr": "Angleterre" },
+  { "jp": "イギリスじん", "fr": "Anglais (personne)" },
+
+  { "jp": "アメリカ", "fr": "Amérique" },
+  { "jp": "アメリカじん", "fr": "Américain (personne)" },
+  { "jp": "えいご", "fr": "Langue anglaise" },
+
+  { "jp": "ちゅうごく", "fr": "Chine" },
+  { "jp": "ちゅうごくじん", "fr": "Chinois (personne)" },
+  { "jp": "ちゅうごくご", "fr": "Langue chinoise" },
+
+  { "jp": "かいしゃ", "fr": "Entreprise" },
+  { "jp": "かいしゃいん", "fr": "Employé" },
+  { "jp": "はいゆう", "fr": "Acteur" },
+  { "jp": "だいとうりょう", "fr": "Président" },
+
+  { "jp": "ビール", "fr": "Bière" },
+  { "jp": "ワイン", "fr": "Vin" },
+  { "jp": "コーヒー", "fr": "Café" },
+  { "jp": "おちゃ", "fr": "Thé" },
+  { "jp": "おさけ", "fr": "Sake / Alcool" },
+  { "jp": "タバコ", "fr": "Cigarette" },
+  { "jp": "バナナ", "fr": "Banane" },
+  { "jp": "ウイスキー", "fr": "Whisky" },
+  { "jp": "ジュース", "fr": "Jus" },
+  { "jp": "トマト", "fr": "Tomate" },
+
+  { "jp": "コ ン ピ ュ ー タ ー", "fr": "Ordinateur" }
+]
+

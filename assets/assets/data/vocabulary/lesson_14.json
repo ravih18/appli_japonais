@@ -1,0 +1,56 @@
+[
+  { "jp": "パリさい", "fr": "Fête nationale du 14 juillet" },
+  { "jp": "リヨン", "fr": "Lyon" },
+  { "jp": "マルセイユ", "fr": "Marseille" },
+
+  { "jp": "りょかん", "fr": "Auberge japonaise" },
+  { "jp": "りょうしん", "fr": "Parents / père et mère" },
+  { "jp": "外国人（がいこくじん）", "fr": "Personne étrangère" },
+
+  { "jp": "寺（てら）", "fr": "Temple bouddhiste" },
+  { "jp": "にわ", "fr": "Jardin" },
+  { "jp": "たんじょう日（び）", "fr": "Anniversaire de naissance" },
+
+  { "jp": "かぶき", "fr": "Kabuki / théâtre traditionnel japonais" },
+  { "jp": "木（き）", "fr": "Arbre" },
+  { "jp": "森（もり）", "fr": "Forêt" },
+  { "jp": "きのこ", "fr": "Champignon" },
+
+  { "jp": "いっぱい", "fr": "Plein, rempli, comble" },
+  { "jp": "だいじょうぶな", "fr": "Ça va / pas de problème" },
+
+  { "jp": "すみます", "fr": "S’installer / établir son domicile" },
+  { "jp": "とまります", "fr": "S’héberger / descendre (à l’hôtel)" },
+  { "jp": "ほんとうですか", "fr": "C’est vrai ?" },
+  { "jp": "たずねます", "fr": "Aller voir / visiter" },
+  { "jp": "うまれます", "fr": "Naître" },
+  { "jp": "しります", "fr": "Connaître / savoir" },
+  { "jp": "もちます", "fr": "Avoir / tenir / posséder" },
+
+  { "jp": "ガス", "fr": "Gaz" },
+  { "jp": "カーテン", "fr": "Rideau" },
+  { "jp": "カタログ", "fr": "Catalogue" },
+  { "jp": "ガム", "fr": "Chewing-gum" },
+  { "jp": "カメラ", "fr": "Appareil photo" },
+  { "jp": "カレンダー", "fr": "Calendrier" },
+  { "jp": "ギター", "fr": "Guitare" },
+  { "jp": "キャベツ", "fr": "Chou" },
+  { "jp": "クーラー", "fr": "Climatiseur" },
+  { "jp": "クラシック", "fr": "Classique (musique)" },
+  { "jp": "グラマー", "fr": "Plantureux" },
+  { "jp": "クラリネット", "fr": "Clarinette" },
+  { "jp": "クリーム", "fr": "Crème" },
+  { "jp": "クリスマス", "fr": "Noël" },
+  { "jp": "ケーキ", "fr": "Gâteau" },
+  { "jp": "ケチャップ", "fr": "Ketchup" },
+  { "jp": "コカコーラ", "fr": "Coca-Cola" },
+  { "jp": "コート", "fr": "Manteau" },
+  { "jp": "コック", "fr": "Cuisinier" },
+  { "jp": "コーヒー", "fr": "Café" },
+  { "jp": "コップ", "fr": "Verre" },
+  { "jp": "ゴム", "fr": "Caoutchouc / gomme" },
+  { "jp": "ゴルフ", "fr": "Golf" },
+  { "jp": "コンサート", "fr": "Concert" },
+  { "jp": "コンクール", "fr": "Concours" }
+]
+

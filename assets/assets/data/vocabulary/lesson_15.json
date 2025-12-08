@@ -1,0 +1,58 @@
+[
+  { "jp": "ただいま", "fr": "Me voilà / Je suis de retour" },
+  { "jp": "おかえりなさい", "fr": "Ah te voilà / Tu es rentré" },
+
+  { "jp": "おちゃ／コーヒーをいれます", "fr": "Préparer du thé / du café" },
+  { "jp": "たいへん", "fr": "Très / bien / beaucoup" },
+  { "jp": "わすれます", "fr": "Oublier" },
+  { "jp": "はやく", "fr": "Tôt / immédiatement / vite" },
+
+  { "jp": "いす", "fr": "Chaise" },
+  { "jp": "こわれます", "fr": "Se casser / être cassé" },
+
+  { "jp": "きよみず", "fr": "Kiyomizu" },
+  { "jp": "きよみずでら", "fr": "Temple Kiyomizu" },
+  { "jp": "かも川（がわ）", "fr": "Rivière Kamo" },
+
+  { "jp": "チャップリン", "fr": "Chaplin" },
+  { "jp": "アンドレ", "fr": "Nom d’un magasin" },
+  { "jp": "E.T.", "fr": "Nom d’un film" },
+
+  { "jp": "おかし", "fr": "Gâteau / friandises / sucreries" },
+  { "jp": "みはらし", "fr": "Vue / perspective / panorama" },
+  { "jp": "ぎょうれつ", "fr": "Queue / file / défilé" },
+  { "jp": "ほとり", "fr": "Bord (d'eau)" },
+  { "jp": "なつやすみ", "fr": "Vacances d'été" },
+
+  { "jp": "T.G.V.", "fr": "TGV" },
+
+  { "jp": "にんぎょう", "fr": "Poupée" },
+  { "jp": "あめ", "fr": "Pluie" },
+  { "jp": "すもう", "fr": "Sumo" },
+  { "jp": "すもうとり", "fr": "Lutteur de sumo" },
+
+  { "jp": "サーカス", "fr": "Cirque" },
+  { "jp": "サッカー", "fr": "Foot" },
+  { "jp": "サラダ", "fr": "Salade" },
+  { "jp": "シック", "fr": "Chic" },
+  { "jp": "ジャーナリスト", "fr": "Journaliste" },
+  { "jp": "ジャム", "fr": "Confiture" },
+  { "jp": "シャンパン", "fr": "Champagne" },
+  { "jp": "シャンプー", "fr": "Shampoing" },
+  { "jp": "スキー", "fr": "Ski" },
+  { "jp": "スケート", "fr": "Patinage" },
+  { "jp": "スチュワーデス", "fr": "Hôtesse de l’air" },
+  { "jp": "ステーキ", "fr": "Steak" },
+  { "jp": "ステレオ", "fr": "Stéréo" },
+  { "jp": "ストーブ", "fr": "Poêle / radiateur" },
+  { "jp": "スーパー", "fr": "Supermarché" },
+  { "jp": "スパゲッティ", "fr": "Spaghetti" },
+  { "jp": "スプーン", "fr": "Cuillère" },
+  { "jp": "ズボン", "fr": "Pantalon" },
+  { "jp": "スリラー", "fr": "Thriller" },
+  { "jp": "セーター", "fr": "Pull" },
+  { "jp": "センス", "fr": "Sens" },
+  { "jp": "ソーセージ", "fr": "Saucisse" },
+  { "jp": "ソファ", "fr": "Sofa / canapé" },
+  { "jp": "ソフト", "fr": "Mou / doux" }
+]

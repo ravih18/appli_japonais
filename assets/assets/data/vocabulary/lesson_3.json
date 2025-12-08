@@ -1,0 +1,32 @@
+[
+  { "jp": "父（ちち）", "fr": "Mon père" },
+  { "jp": "母（はは）", "fr": "Ma mère" },
+  { "jp": "おとうさん", "fr": "Père (de quelqu'un)" },
+  { "jp": "おかあさん", "fr": "Mère (de quelqu'un)" },
+
+  { "jp": "兄（あに）", "fr": "Mon grand frère" },
+  { "jp": "弟（おとうと）", "fr": "Mon petit frère" },
+  { "jp": "姉（あね）", "fr": "Ma grande sœur" },
+  { "jp": "妹（いもうと）", "fr": "Ma petite sœur" },
+
+  { "jp": "おにいさん", "fr": "Grand frère (de quelqu'un)" },
+  { "jp": "おねえさん", "fr": "Grande sœur (de quelqu'un)" },
+
+  { "jp": "きょうだい", "fr": "Frères et sœurs" },
+  { "jp": "かぞく", "fr": "Famille" },
+
+  { "jp": "これ", "fr": "Ceci" },
+  { "jp": "それ", "fr": "Cela" },
+  { "jp": "あれ", "fr": "Cela (là-bas)" },
+
+  { "jp": "じてんしゃ", "fr": "Vélo" },
+  { "jp": "くるま", "fr": "Voiture" },
+  { "jp": "ノート", "fr": "Cahier" },
+  { "jp": "え", "fr": "Image / dessin" },
+
+  { "jp": "きれい", "fr": "Beau / propre" },
+  { "jp": "おおきい", "fr": "Grand" },
+  { "jp": "ちいさい", "fr": "Petit" },
+  { "jp": "たかい", "fr": "Haut / cher" },
+  { "jp": "やすい", "fr": "Bon marché" }
+]

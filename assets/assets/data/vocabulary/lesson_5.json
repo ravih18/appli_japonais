@@ -1,0 +1,24 @@
+[
+  { "jp": "あります", "fr": "Il y a (objets, plantes…)" },
+  { "jp": "います", "fr": "Il y a (êtres vivants)" },
+
+  { "jp": "うち", "fr": "Maison" },
+  { "jp": "へや", "fr": "Chambre / pièce" },
+  { "jp": "まど", "fr": "Fenêtre" },
+  { "jp": "ドア", "fr": "Porte" },
+  { "jp": "いす", "fr": "Chaise" },
+  { "jp": "テーブル", "fr": "Table" },
+  { "jp": "ほんだな", "fr": "Bibliothèque (meuble)" },
+
+  { "jp": "ねこ", "fr": "Chat" },
+  { "jp": "とり", "fr": "Oiseau" },
+  { "jp": "さかな", "fr": "Poisson" },
+
+  { "jp": "うえ", "fr": "Sur, au-dessus" },
+  { "jp": "した", "fr": "Sous" },
+  { "jp": "まえ", "fr": "Devant" },
+  { "jp": "うしろ", "fr": "Derrière" },
+  { "jp": "なか", "fr": "Dans" },
+  { "jp": "そと", "fr": "Dehors" },
+  { "jp": "となり", "fr": "À côté" }
+]

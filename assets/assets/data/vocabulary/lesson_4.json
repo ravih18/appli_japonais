@@ -1,0 +1,25 @@
+[
+  { "jp": "どこ", "fr": "Où ?" },
+  { "jp": "だれ", "fr": "Qui ?" },
+  { "jp": "なに / なん", "fr": "Quoi ?" },
+
+  { "jp": "いま", "fr": "Maintenant" },
+  { "jp": "あとで", "fr": "Plus tard" },
+  { "jp": "いつ", "fr": "Quand ?" },
+
+  { "jp": "きょう", "fr": "Aujourd'hui" },
+  { "jp": "あした", "fr": "Demain" },
+  { "jp": "きのう", "fr": "Hier" },
+
+  { "jp": "ともだち", "fr": "Ami" },
+  { "jp": "ゆうびんきょく", "fr": "Bureau de poste" },
+  { "jp": "ぎんこう", "fr": "Banque" },
+  { "jp": "えき", "fr": "Gare" },
+  { "jp": "がっこう", "fr": "École" },
+
+  { "jp": "いく", "fr": "Aller" },
+  { "jp": "くる", "fr": "Venir" },
+  { "jp": "かえる", "fr": "Rentrer" },
+
+  { "jp": "なぜ / どうして", "fr": "Pourquoi ?" }
+]
